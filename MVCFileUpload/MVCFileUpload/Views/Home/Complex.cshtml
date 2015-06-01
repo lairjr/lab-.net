@@ -1,0 +1,27 @@
+﻿@model MVCFileUpload.Models.UploadModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Complex model File Upload</h1>
+    <p class="lead">This is the complex model file upload page</p>
+</div>
+
+<div class="row">
+    @using (Html.BeginForm("ComplexUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <table>
+            <tr>
+                <td>User Name:</td>
+                <td>@Html.EditorFor(m => Model.UserName)</td>
+            </tr>
+            <tr>
+                <td>User Age:</td>
+                <td>@Html.EditorFor(m => Model.Age)</td>
+            </tr>
+        </table>
+        <input type="file" name="FileUpload" />
+        <input type="submit" name="Submit" value="Send" />
+    }
+</div>

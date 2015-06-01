@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>File Upload</h1>
+    <p class="lead">This is the file upload page</p>
+</div>
+
+<div class="row">
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="FileUpload" />
+        <input type="submit" name="Submit" value="Send" />
+    }
+</div>
