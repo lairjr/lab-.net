@@ -1,0 +1,4 @@
+D:\My Projects\DesignPatterns\DesignPatterns\AbstractFactory\bin\Debug\AbstractFactory.dll
+D:\My Projects\DesignPatterns\DesignPatterns\AbstractFactory\bin\Debug\AbstractFactory.pdb
+D:\My Projects\DesignPatterns\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.dll
+D:\My Projects\DesignPatterns\DesignPatterns\AbstractFactory\obj\Debug\AbstractFactory.pdb

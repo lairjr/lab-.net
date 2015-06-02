@@ -1,0 +1,4 @@
+D:\My Projects\DesignPatterns\DesignPatterns\Builder\bin\Debug\Builder.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Builder\bin\Debug\Builder.pdb
+D:\My Projects\DesignPatterns\DesignPatterns\Builder\obj\Debug\Builder.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Builder\obj\Debug\Builder.pdb

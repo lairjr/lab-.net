@@ -1,0 +1,4 @@
+D:\My Projects\DesignPatterns\DesignPatterns\Singleton\bin\Debug\Singleton.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Singleton\bin\Debug\Singleton.pdb
+D:\My Projects\DesignPatterns\DesignPatterns\Singleton\obj\Debug\Singleton.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Singleton\obj\Debug\Singleton.pdb
