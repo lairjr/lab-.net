@@ -1,0 +1,4 @@
+D:\My Projects\DesignPatterns\DesignPatterns\VirtualMethods\bin\Debug\VirtualMethods.dll
+D:\My Projects\DesignPatterns\DesignPatterns\VirtualMethods\bin\Debug\VirtualMethods.pdb
+D:\My Projects\DesignPatterns\DesignPatterns\VirtualMethods\obj\Debug\VirtualMethods.dll
+D:\My Projects\DesignPatterns\DesignPatterns\VirtualMethods\obj\Debug\VirtualMethods.pdb

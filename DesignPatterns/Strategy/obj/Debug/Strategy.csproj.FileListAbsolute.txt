@@ -1,0 +1,4 @@
+D:\My Projects\DesignPatterns\DesignPatterns\Strategy\bin\Debug\Strategy.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Strategy\bin\Debug\Strategy.pdb
+D:\My Projects\DesignPatterns\DesignPatterns\Strategy\obj\Debug\Strategy.dll
+D:\My Projects\DesignPatterns\DesignPatterns\Strategy\obj\Debug\Strategy.pdb
