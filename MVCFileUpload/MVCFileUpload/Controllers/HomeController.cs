@@ -20,6 +20,11 @@ namespace MVCFileUpload.Controllers
             return View();
         }
 
+        public ActionResult MultiInputs()
+        {
+            return View();
+        }
+
         public ActionResult Upload()
         {
             var result = this.SaveFile(Request.Files[0]);
@@ -30,6 +35,16 @@ namespace MVCFileUpload.Controllers
         public ActionResult ComplexUpload(UploadModel model)
         {
             var result = this.SaveFile(model.FileUpload);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult MultiFileUpload(MultiFileModel model)
+        {
+            foreach (var fileItem in model.Items)
+            {
+                var result = SaveFile(fileItem.File);
+            }
 
             return RedirectToAction("Index");
         }
