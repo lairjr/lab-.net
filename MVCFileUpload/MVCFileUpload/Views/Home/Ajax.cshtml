@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Ajax";
+}
+
+<div class="jumbotron">
+    <h1>AjaxFile Upload</h1>
+    <p class="lead">This is the ajax file upload page</p>
+</div>
+
+<div id="uploadForm" class="row">
+    <input type="hidden" class="uploadField" name="UserName"  value="teste"/>
+    <input type="hidden" class="uploadField" name="Age" value="8" />
+    <input class="c8 inputFile" name="Items[0].File" type="file" id="inputFileField[0]" />
+    <input class="c8 inputFile" name="Items[1].File" type="file" id="inputFileField[1]" />
+    <label for="inputFileField[0]" >File Input 1</label>
+    <label for="inputFileField[1]">File Input 2</label>
+    <input id="uploadButton" type="submit" name="Submit" value="Send" />
+</div>
+
+<style type="text/css">
+    .inputFile {
+            position: absolute;
+            float: left;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            z-index: -1;
+            top: 0px;
+            left: 0px;
+        }
+</style>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.inputFile').on('change', function () {
+                alert('change');
+            });
+            $('.inputFile').on('focus', function () {
+                alert('focus');
+            });
+
+            $('#uploadButton').on('click', function () {
+                UploadFiles();
+            });
+
+            function UploadFiles() {
+                var url = window.location.href.replace("#", '') + 'UploadIFrame';
+                var form = $("#uploadForm");
+                $.ajax(url, {
+                    data: {UserName: "ValorUser"},
+                    dataType: 'json',
+                    files: form.find(':file'),
+                    iframe: true,
+                    processData: false
+                }).complete(function (data) {
+                    debugger;
+                    console.log(data);
+                });
+            }
+
+            function GetIEVersion() {
+                // Returns the version of Internet Explorer or a -1
+                // (indicating the use of another browser).
+                var rv = -1; // Return value assumes failure.
+                if (navigator.appName == 'Microsoft Internet Explorer') {
+                    var ua = navigator.userAgent;
+                    var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+                    if (re.exec(ua) != null)
+                        rv = parseFloat(RegExp.$1);
+                }
+                return rv;
+            }
+
+            function CreateFormData() {
+                var formData;
+                var ieVersion = GetIEVersion();
+                debugger;
+
+                if (ieVersion < 0 || ieVersion >= 10) {
+                    formData = new FormData();
+                } else {
+                    var newform = document.createElement("form");
+                    newform.enctype = "multipart/form-data";
+                }
+
+                var fileUploadInputs = $(".uploadField");
+
+                for (var i = 0; i < fileUploadInputs.length; i++) {
+                    var input = fileUploadInputs[i];
+
+                    //if (input.type == 'file') {
+                    //    //formData.append(input.name, input, input.value);
+                    //} else {
+                    //    formData.append(input.name, input.value);
+                    //}
+                    
+                    newform.appendChild(input);
+                }
+
+                return newform;
+            }
+
+            function CreateIEForm() {
+
+            }
+        });
+    </script>
+}

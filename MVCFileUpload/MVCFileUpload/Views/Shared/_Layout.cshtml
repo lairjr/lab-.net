@@ -24,6 +24,7 @@
                     <li>@Html.ActionLink("Simple Upload", "Index", "Home")</li>
                     <li>@Html.ActionLink("Complex Upload", "Complex", "Home")</li>
                     <li>@Html.ActionLink("Multi Inputs", "MultiInputs", "Home")</li>
+                    <li>@Html.ActionLink("Ajax Upload", "Ajax", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -39,6 +40,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/jquery.iframe-transport.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
