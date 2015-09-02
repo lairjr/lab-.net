@@ -52,3 +52,4 @@ D:\Development\public projects\lab-.net\MVCFileUpload\MVCFileUpload\bin\Microsof
 D:\Development\public projects\lab-.net\MVCFileUpload\MVCFileUpload\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\Development\public projects\lab-.net\MVCFileUpload\MVCFileUpload\obj\Debug\MVCFileUpload.dll
 D:\Development\public projects\lab-.net\MVCFileUpload\MVCFileUpload\obj\Debug\MVCFileUpload.pdb
+D:\Development\public projects\lab-.net\MVCFileUpload\MVCFileUpload\obj\Debug\MVCFileUpload.csprojResolveAssemblyReference.cache

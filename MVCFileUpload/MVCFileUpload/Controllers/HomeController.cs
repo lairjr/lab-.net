@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -22,6 +24,12 @@ namespace MVCFileUpload.Controllers
 
         public ActionResult MultiInputs()
         {
+            var test = new TestName();
+
+            test.PName = new Test();
+
+            var name = GetMemberName<TestName>(_ => _.PName.MultiFile);
+
             return View();
         }
 
@@ -64,5 +72,57 @@ namespace MVCFileUpload.Controllers
             return false;
         }
 
+        public string GetPropertyName(Expression<Func<object>> expression)
+        {
+            MemberExpression body = (MemberExpression)expression.Body;
+            return body.Member.Name;
+        }
+
+        public static MemberInfo GetMember<T>(Expression<Func<T, object>> property)
+        {
+            var expression = (MemberExpression)property.Body;
+            return expression.Member;
+        }
+
+        public static string GetMemberName<T>(Expression<Func<T, object>> property)
+        {
+            return GetMember(property).Name;
+        }
+    }
+
+    public class Test
+    {
+        public MultiFileModel MultiFile { get; set; }
+
+        public string PropertyName
+        {
+            get
+            {
+                Expression<Func<object>> expression = () => this.MultiFile;
+                MemberExpression body = (MemberExpression)expression.Body;
+                return body.Member.Name;
+            }
+        }
+    }
+
+    public static class MemberOf<TSource> where TSource : class
+    {
+        public static string Name<T>(Expression<Func<TSource, T>> expression)
+        {
+            if (expression == null)
+            {
+                throw new ArgumentNullException("expression");
+            }
+            if (expression.Body.NodeType == ExpressionType.MemberAccess)
+            {
+                return ((MemberExpression)expression.Body).Member.Name;
+            }
+            return string.Empty;
+        }
+    }
+
+    public class TestName
+    {
+        public Test PName { get; set; }
     }
 }

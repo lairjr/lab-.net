@@ -21,9 +21,8 @@
                 <td>@Html.EditorFor(m => Model.Age)</td>
             </tr>
         </table>
-        <input type="file" name="Items[0].File" />
-        <input type="file" name="Items[1].File" />
-        <input type="file" name="Items[2].File" />
+        
+        @Html.Action("EditorList", "Document", new { ModelName = "Items", PropertyName  = "File", Limit = 3 })
         <input type="submit" name="Submit" value="Send" />
     }
 </div>
