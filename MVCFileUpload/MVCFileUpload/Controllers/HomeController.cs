@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -33,6 +34,11 @@ namespace MVCFileUpload.Controllers
             return View();
         }
 
+        public ActionResult Ajax()
+        {
+            return View();
+        }
+
         public ActionResult Upload()
         {
             var result = this.SaveFile(Request.Files[0]);
@@ -45,6 +51,41 @@ namespace MVCFileUpload.Controllers
             var result = this.SaveFile(model.FileUpload);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult AjaxUpload(UploadModel model)
+        {
+            var result = this.SaveFile(model.FileUpload);
+
+            var jsonResult = new JsonResult();
+            jsonResult.Data = new { Status = "Ok" };
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult AjaxUploadIFrame(MultiFileModel model)
+        {
+            foreach (var fileItem in model.Items)
+            {
+                var result = SaveFile(fileItem.File);
+            }
+
+            return CreateContentResultForDocument();
+        }
+
+        private ContentResult CreateContentResultForDocument()
+        {
+            var contentResult = new ContentResult();
+
+            var contentStringBuilder = new StringBuilder();
+            contentStringBuilder.Append(@"<textarea id='dataJsonResponse' data-type='application/json'>");
+            contentStringBuilder.Append(@"{'ok': 'false'");
+            contentStringBuilder.Append(@"</textarea>");
+
+            contentResult.Content = contentStringBuilder.ToString();
+
+            return contentResult;
         }
 
         public ActionResult MultiFileUpload(MultiFileModel model)
