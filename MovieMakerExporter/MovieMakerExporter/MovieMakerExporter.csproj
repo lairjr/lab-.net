@@ -43,17 +43,13 @@
   <ItemGroup>
     <Compile Include="ExportHandler.cs" />
     <Compile Include="FileWrapper.cs" />
+    <Compile Include="MovieMakerXmlHandler.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectData.cs" />
+    <Compile Include="ProjectOperations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="XMLFile1.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
